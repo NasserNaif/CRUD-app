@@ -1,7 +1,6 @@
-import { Box, Text, Image, SimpleGrid, Button, Flex } from '@chakra-ui/react'
+import { Box, SimpleGrid, Button, Flex } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Craate from './Craate'
 import { useNavigate } from "react-router-dom"
 import Card from '../componant/Card'
 
@@ -20,7 +19,7 @@ function Home() {
     const DeleteFunc = (id) => {
         axios.delete(`https://6362424b7521369cd068e001.mockapi.io/store/${id}`).then((res) => {
             setPhotos(photos.filter((del) => {
-                return del.id != id
+                return del.id !== id
             }))
         })
     }
@@ -59,10 +58,3 @@ function Home() {
 export default Home
 
 
-{/* <Image w={"100%"} h={"30vh"} src={e.image} />
-                        <Text>{e.title}</Text>
-                        <Text>{e.desc}</Text>
-                        <Button onClick={() => DeleteFunc(e.id)}>Delete</Button>
-                        <Button onClick={() => {
-                            navigate('/Update/' + e.id)
-                        }}>Update</Button> */}
